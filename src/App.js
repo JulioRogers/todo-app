@@ -4,6 +4,14 @@ import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { CreateTodoButton } from './CreateTodoButton';
+import { ToDoItem } from './ToDoItem';
+
+
+const defaultTodos = [
+  {text: 'Cortar cebolla', completed: false},
+  {text: 'Tomar el curso de intro a React', completed: false},
+  {text: 'Llorar con la llorona', completed: false},
+  {text: 'Llorar con la lloroa', completed: false},];
 
 function App() {
   return (
@@ -12,9 +20,8 @@ function App() {
       <TodoSearch/>
       
       <TodoList>
-        <ToDoItem/> 
-        <ToDoItem/> 
-        <ToDoItem/> 
+        {defaultTodos.map(todo => (
+        <ToDoItem key={todo.text} text={todo.text} completed={todo.completed}/>))}
       </TodoList>
 
       <CreateTodoButton/>
@@ -23,14 +30,4 @@ function App() {
 }
 
 
-function ToDoItem() {
-  return(
-      <li>
-        <span>V</span>
-        <p> Texto del To do aja</p>
-        <span>X</span>
-      </li>
-
-  )
-}
 export default App;

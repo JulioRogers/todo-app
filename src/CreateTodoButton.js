@@ -1,7 +1,8 @@
+import './CreateTodoButton.css';
 
 function CreateTodoButton({ onCreate }) {
   return (
-    <button onClick={onCreate}>Create</button>
+    <button className="CreateTodoButton" onClick={onCreate}>Create</button>
   );
 }
 
