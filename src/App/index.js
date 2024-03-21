@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './platzi.webp';
-import './App.css';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { CreateTodoButton } from './CreateTodoButton';
-import { ToDoItem } from './ToDoItem';
+import '../App.css';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { ToDoItem } from '../ToDoItem';
+import { useLocalStorage } from './useLocalStorage';
 
 
 const defaultTodos = [
@@ -14,32 +14,6 @@ const defaultTodos = [
   {text: 'Llorar con la llorona', completed: false},
   {text: 'Llorar con la lloroa', completed: true},];
 
-
-  function useLocalStorage(itemName, initialValue) {
-
-    const localStorageItem = localStorage.getItem(itemName);
-    let parsedItem;
-
-    if (!localStorageItem) {
-      localStorage.setItem(itemName, JSON.stringify([]));
-      parsedItem = initialValue;
-    } else {
-      parsedItem = JSON.parse(localStorageItem);
-  
-    }
-
-    const [item,setItem]=React.useState(parsedItem);
-
-    const saveItem = (newItem) => {
-      localStorage.setItem(itemName, JSON.stringify(newItem));
-      setItem(newItem);};
-
-    return [
-      item,
-      saveItem,
-    ];
-  
-  }
 
 function App() {
  
